@@ -6,9 +6,38 @@ linux virtul environment. Suitable for Mac OSX.
 ## Install vagrant 2.0.0 (or higher)
 
 ## Install virtualbox
-* install VirtualBox 5.1.x
+* Install VirtualBox 5.1.x
 ** Don't get VirtualBox 5.2.x
 ** https://www.vagrantup.com/docs/virtualbox/
+
+## Install virtualbox extension
+* Make sure the version matches VirtualBox
+
+## Run VBoxManage to get particulars of Movidius USB drive
+```
+% VBoxManage list usbhost
+Host USB Devices:
+
+...
+UUID:               b21a1564-5034-4860-9dfa-67136ade7343
+VendorId:           0x03e7 (03E7)
+ProductId:          0x2150 (2150)
+Revision:           0.1 (0001)
+Port:               1
+USB version/speed:  0/High
+Manufacturer:       Movidius Ltd.
+Product:            Movidius MA2X5X
+SerialNumber:       03e72150
+Address:            p=0x2150;v=0x03e7;s=0x00002b88d11fa220;l=0x14100000
+Current State:      Available
+```
+
+## Modify vagrantfile to describe your Movidius device
+
+http://code-chronicle.blogspot.com/2014/08/connect-usb-device-through-vagrant.html
+https://sonnguyen.ws/connect-usb-from-virtual-machine-using-vagrant-and-virtualbox/
+```
+```
 
 ## Add vagrant image
 ```

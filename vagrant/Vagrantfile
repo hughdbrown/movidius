@@ -15,6 +15,19 @@ Vagrant.configure("2") do |config|
   # config.vm.box = "base"
   config.vm.box = "ubuntu/xenial64"
 
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--usb", "on"]
+      vb.customize ["modifyvm", :id, "--usbxhci", "on"]
+      vb.customize ["usbfilter", "add", "0",
+        "--target", :id,
+        "--name", "5d8ae144-9961-49b0-8f44-18bc1bcdccfd",
+        "--manufacturer", "Movidius Ltd.",
+        "--product", "Movidius MA2X5X",
+        "--vendorid", "0x03e7",
+        "--productid", "0x2150"
+      ]
+    end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
